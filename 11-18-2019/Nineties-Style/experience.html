@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html  lang="en">
+
+<head>
+    <title>Baylie's Python Showcase</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+</head>
+
+<body>
+    <div class="nav">
+        <a href="index.html">HOME</a>
+        <span>-</span>
+        <a href="interests.html">INTERESTS</a>
+        <span>-</span>
+        <a href="experience.html">PYTHON SHOWCASE</a>
+    </div>
+
+    <div class="page-content">
+
+        <h1 class="text-center to-upper no-margin">After three weeks of the DigitalCrafts Immersive course, I have created:</h1>   
+            <div class="half_column_left" id="week_one">
+                <h4 class="to-upper text-center">Week One:</h4>
+                <p class='text-center'>A calculator in Python! This was definitely my favorite project of the week.
+                </p>
+                <p class="to-upper text-center">Here is a copy of the code I wrote:</p>
+
+            <div class="code_here"> 
+            <code>
+                #calculates the result of two numbers and an operand.<br/>
+                input1 = 0<br/>
+                input3 = 0<br/>
+                <br/>
+                def takeinputs():<br/>
+                    input1 = int(input("Enter the first number for your calculation: "))<br/>
+                    input2 = input("Enter the operation desired (+, -, *, /):")<br/>
+                    input3 = int(input("Enter the second number for your calculation: "))<br/>
+                    return input1, input2, input3<br/>
+                <br/>
+                def add(input1, input3):<br/>
+                    return (input1 + input3)<br/>
+                <br/>
+                def sub(input1, input3):<br/>
+                    return (input1 - input3)<br/>
+                <br/>
+                def mul(input1, input3):<br/>
+                    return (input1 * input3) 
+                <br/>
+                def div(input1, input3):<br/>
+                    return (input1 / input3)<br/>    
+                <br/>
+                def calc():<br/>
+                    (input1,input2,input3) = takeinputs()<br/>
+                    
+                    if input2 == "+":<br/>
+                        result = add(input1, input3)<br/>
+                    elif input2 == "-":<br/>
+                        result = sub(input1, input3)<br/>
+                    elif input2 == "*":<br/>
+                        result = mul(input1, input3)<br/>
+                    elif input2 == "/":<br/>
+                        result = div(input1, input3)<br/>
+                    else:<br/>
+                        print("Invalid Operand! Please try again.")<br/>
+                        calc()<br/>
+                    print(f"{input1} {input2} {input3} equals {result}")<br/>
+                    again = input('Press "A" to calculate another equation. press any other key to exit program.').upper()<br/>
+                    if(again == 'A'):<br/>
+                        calc()<br/>
+                    else:<br/>
+                        print("Exiting Program!")<br/>
+                        exit(1)<br/>                
+                </code>
+                </div>
+            </div>
+            
+            <div class="half_column_right" id="week_two">
+                    <h4 class="to-upper text-center">Week two:</h4>
+                    <p class="text-center">A pool table management project in python! This established the fundamentals of objects for me.
+                    </p>
+                    <p class="to-upper text-center">Here is a copy of the code I wrote:</p>
+    
+                <div class="code_here"> 
+                <code>
+                        #Pool table management application. Saves tables time played and cost in a file called table_logs.txt	<br />
+                        #Author: Baylie	<br />
+                            <br />
+                        import time	<br />
+                        import datetime	<br />
+                        import os	<br />
+                        import json	<br />
+                            <br />
+                        tables = []	<br />
+                        tables_vars = []	<br />
+                            <br />
+                        class Table:	<br />
+                        def __init__(self, table_number, is_occupied):	<br />
+                        self.table_number = table_number	<br />
+                        self.is_occupied = False	<br />
+                        self.cost = 0	<br />
+                        self.time_start = 0.0	<br />
+                        self.time_end = 0.0	<br />
+                        tables.append(self)	<br />
+                            <br />
+                        def start_time(self):	<br />
+                        self.time_start = time.time()	<br />
+                        #self.time_started = strftime('%y-%m-%d %H:%M:%S', localtime())	<br />
+                        self.time_started = str(datetime.datetime.now())	<br />
+                        def end_time(self):	<br />
+                        self.time_end = time.time()	<br />
+                        #self.time_ended = strftime('%y-%m-%d %H:%M:%S', localtime())	<br />
+                        self.time_ended = str(datetime.datetime.now())	<br />
+                        self.time_played()	<br />
+                            <br />
+                        def time_played(self):	<br />
+                        self.time_passed = self.time_end - self.time_start	<br />
+                        self.minutes_passed = round(self.time_passed / 60,2)	<br />
+                        self.cost = self.minutes_passed * .50	<br />
+                        #print(end_time(self)-start_time(self))	<br />
+                            <br />
+                        def start_table(self):	<br />
+                        self.start_time()	<br />
+                        self.is_occupied = True	<br />
+                        print(f'Table {self.table_number} Started at {self.time_started}')	<br />
+                            <br />
+                        def end_table(self):	<br />
+                        self.is_occupied = False	<br />
+                        self.end_time()	<br />
+                        print(f'Table {self.table_number} Ended at {self.time_ended}')	<br />
+                        self.print_to_txt()	<br />
+                        self.print_to_json()	<br />
+                        def print_to_txt(self):	<br />
+                        try:	<br />
+                        os.mkdir(f'{datetime.datetime.now():%Y-%m-%d}')	<br />
+                        except:	<br />
+                        ('directory already created!')	<br />
+                        with open(f'{datetime.datetime.now():%Y-%m-%d}/table_logs.txt','a') as file_object:	<br />
+                        file_object.write(f'Table {self.table_number}: \r START TIME: {self.time_started} \r END TIME: {self.time_ended} \r TOTAL TIME PLAYED: {self.minutes_passed} MINUTES \r TOTAL COST: ${self.cost} \r _______________________________________________ \n')	<br />
+                        def print_to_json(self):	<br />
+                        try:	<br />
+                        os.mkdir(f'{datetime.datetime.now():%Y-%m-%d}')	<br />
+                        except:	<br />
+                        ('directory already created!')	<br />
+                        with open(f'{datetime.datetime.now():%Y-%m-%d}/table_logs.json','w') as file_object:	<br />
+                        json.dump(tables_vars,file_object)	<br />
+                            <br />
+                        def print_free_tables():	<br />
+                        print('free tables:')	<br />
+                        for i in range(0,len(tables)):	<br />
+                        if tables[i].is_occupied == False:	<br />
+                        print(tables[i].table_number)	<br />
+                            <br />
+                        def print_occ_tables():	<br />
+                        print('occupied tables:')	<br />
+                        for i in range(0,len(tables)):	<br />
+                        if tables[i].is_occupied:	<br />
+                        print(f'Table: {tables[i].table_number} has been occupied since {tables[i].time_started}')	<br />
+                            <br />
+                        def initialize_tables():	<br />
+                        for index in range(1,13):	<br />
+                        table = Table(index, False)	<br />
+                        tables_vars.insert(index,table.__dict__)	<br />
+                        def get_tables_vars():	<br />
+                        return(tables_vars)	<br />
+                            <br />
+                        def user_input():	<br />
+                        user_input = ("enter your choice here:")	<br />
+                            <br />
+                        def which_to_start():	<br />
+                        to_start = int(input("Input which table you would like to check out:")) - 1	<br />
+                        if not tables[to_start].is_occupied:	<br />
+                        tables[to_start].start_table()	<br />
+                        else:	<br />
+                        print(f"Table {tables[to_start].table_number} is occupied already. Sorry!")	<br />
+                            <br />
+                        def which_to_end():	<br />
+                        to_end = int(input("Input which table you would like to check back in:")) - 1	<br />
+                        if tables[to_end].is_occupied:	<br />
+                        tables[to_end].end_table()	<br />
+                        else:	<br />
+                        print(f"Table {tables[to_end].table_number} is occupied already. Sorry!")	<br />
+                            <br />
+                        def print_all_tables():	<br />
+                        print_free_tables()	<br />
+                        print_occ_tables()	<br />
+                            <br />
+                        def take_user_input():	<br />
+                        get_tables_vars()	<br />
+                        menu = input("Type START to start a table, END to end a table, VIEW to view a table.").upper()	<br />
+                        if(menu == "START"):	<br />
+                        which_to_start()	<br />
+                        elif(menu == "END"):	<br />
+                        which_to_end()	<br />
+                        elif(menu == "VIEW"):	<br />
+                        print_all_tables()	<br />
+                            <br />
+                            <br />
+                        initialize_tables()	<br />
+                            <br />
+                            <br />
+                            <br />
+                        while True:	<br />
+                        take_user_input()	<br />
+                        print(get_tables_vars())	<br />
+                            <br />
+                    </code>
+                    </div>
+                </div>    
+        </div>
+</body>
+
+</html>
