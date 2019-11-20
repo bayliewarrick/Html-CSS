@@ -1,0 +1,82 @@
+body, html {
+    margin: 0;
+    background-color:black;
+    height: 100%;
+}
+
+#score {
+    text-align: right;
+    color:#999;
+    margin-right:5%;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+.no-border {
+    border-top: none!important;
+    border-left: none!important;
+}
+
+.red {
+    background-color:red;
+}
+
+.yellow {
+    background-color:yellow;
+}
+
+.green {
+    background-color:green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.bricks {
+    margin-left:auto;
+    margin-right:auto;
+    border:15px solid #999;
+    padding:1px;
+    padding-top:35px;
+    height:600px;
+}
+
+.right {
+    float:right;
+}
+
+.bumper {
+    position: absolute;
+    bottom:35px;
+    left: 45%;
+    width:120px;
+    height:20px;
+    background-color:#999;
+}
+
+.ball {
+    width:15px;
+    height:15px;
+    background-color:#999;
+}
+
+#ball-2 {
+    position:absolute;
+    top:425px;
+    left:100px;
+}
+
+#ball-1 {
+
+}
+
+.brick {
+    border-top:1px solid white;
+    border-left:1px solid white;
+    margin:.25px;
+    margin-top:2px;
+    height:33px;
+    width:8%;
+    display: inline-block;
+}

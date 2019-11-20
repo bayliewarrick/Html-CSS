@@ -1,0 +1,71 @@
+.menu {
+    display: flex;
+    flex-direction: row;
+    background-color:#111;
+}
+
+
+.menu a{
+    text-decoration:none;
+    margin:35px;
+    margin-top:20px;
+    margin-bottom:20px;
+    color:white;
+    font-family: arial;
+}
+
+.menu a:hover{
+    transition:.2s;
+    color:#666;
+}
+
+#ad-spot img{
+    width:100%;
+    margin-top:15px;
+    height:75px;
+}
+
+
+.items {
+    display:flex;
+    flex-wrap: wrap;
+
+}
+
+.items img{
+    margin:4px;
+    width:225px;
+    height:225px;
+}
+
+.items label{
+    font-size:12px;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.items div{
+    display:flex;
+    flex-direction: column;
+}
+
+
+
+@media only screen and (max-width:650px) {
+
+    .items{
+        justify-content: center;
+    }
+
+
+    #ad-spot img{
+        display: none;
+    }
+
+    .menu {
+        flex-direction: column;
+        text-align: center;
+    }
+
+
+}

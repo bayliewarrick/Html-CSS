@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+    background:url('../images/landscape.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color:black;
+}
+
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    background-color:#333;
+}
+
+.menu > a:nth-child(1) {
+    flex-grow:1;
+}
+
+
+
+
+.menu a{
+    text-decoration:none;
+    margin:35px;
+    margin-top:20px;
+    margin-bottom:20px;
+    color:white;
+    font-family: arial;
+}
+
+.menu a:hover{
+    transition:.2s;
+    color:#666;
+}
+
+
+
+@media only screen and (max-width:650px) {
+
+    body {
+        background:url('../images/portrait.jpg');
+        background-color:black;
+        background-size:cover;
+    }
+
+    .menu {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
