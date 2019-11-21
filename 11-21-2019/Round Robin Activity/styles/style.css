@@ -1,0 +1,27 @@
+/*Mobile-first CSS*/
+
+* {
+    margin:0;
+}
+
+#container{
+    display:flex;
+    flex-direction:column;
+}
+
+#menu {
+    display:flex;
+    flex-flow: column;
+    align-items:center;
+    background-color:blue;
+    color:white;
+}
+
+@media screen and (min-width: 800px) {
+#menu h2{
+    margin-left:10px;
+}
+
+#menu {
+    flex-flow:row;
+}
