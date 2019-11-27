@@ -1,0 +1,26 @@
+body {
+
+}
+
+.image {
+    margin:10px;
+    border-radius:8px;
+    height:150px;
+    width:10%;
+}
+
+.column {
+    flex-basis: 100%;
+  }
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  @media screen and (min-width: 800px) {
+    .column {
+      flex: 1;
+    }
+  }
