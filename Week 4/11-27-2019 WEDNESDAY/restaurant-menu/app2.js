@@ -71,6 +71,12 @@ function displayDesserts() {
     }
 }
 
+function returnID() {
+    console.log(this.id)
+}
+
+
+
 function displayStarters() {
     menulist.innerHTML = ''
     var Starters = dishes.filter(function(dishes) {
@@ -93,7 +99,85 @@ function displayStarters() {
     }
 }
 
-document.getElementById("all").addEventListener("click", displayAll);
-document.getElementById("entrees").addEventListener("click", displayEntrees);
-document.getElementById("desserts").addEventListener("click", displayDesserts);
-document.getElementById("starters").addEventListener("click", displayStarters);
+
+function displayAll() {
+    menulist.innerHTML = ''
+    var Items = dishes.filter(function(dishes) {
+        return dishes.course == "Starters";
+    })
+    for(index = 0; index < Starters.length; index++) {
+        var description = Starters[index].description
+        var image = Starters[index].imageURL
+        var title = Starters[index].title
+        var price = Starters[index].price
+
+        menulist.innerHTML += (`
+        <li>
+        <img src="${image}"> 
+        <label>${title}</label><br/>
+        <span>${description}</span>
+        <h3>$${price}</h3>
+        </li>
+        `)
+    }
+}
+
+
+
+function display() {
+    menulist.innerHTML = ''
+    var items = dishes.filter(function(dishes) {
+        return dishes.course == this.id;
+    })
+    for(index = 0; index < items.length; index++) {
+        var description = items[index].description
+        var image = items[index].imageURL
+        var title = items[index].title
+        var price = items[index].price
+
+        menulist.innerHTML += (`
+        <li>
+        <img src="${image}"> 
+        <label>${title}</label><br/>
+        <span>${description}</span>
+        <h3>$${price}</h3>
+        </li>
+        `)
+    }
+}
+
+
+
+
+x = document.getElementsByClassName('menubutton')
+for(i = 0; i < x.length; i++) {
+    document.getElementById(x[i].id).addEventListener('click', function() {
+        menulist.innerHTML = ''
+    var items = dishes.filter(function(dishes) {
+        console.log(x[1].id)
+    })
+    for(index = 0; index < items.length; index++) {
+        var description = items[index].description
+        var image = items[index].imageURL
+        var title = items[index].title
+        var price = items[index].price
+
+        menulist.innerHTML += (`
+        <li>
+        <img src="${image}"> 
+        <label>${title}</label><br/>
+        <span>${description}</span>
+        <h3>$${price}</h3>
+        </li>
+        `)
+    }
+    }) 
+}
+
+
+/*
+document.getElementById("all").addEventListener("click", displayAll)
+document.getElementById("entrees").addEventListener("click", displayEntrees)
+document.getElementById("desserts").addEventListener("click", displayDesserts)
+document.getElementById("starters").addEventListener("click", displayStarters)
+*/
