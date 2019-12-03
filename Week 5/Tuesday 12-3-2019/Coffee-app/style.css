@@ -1,0 +1,43 @@
+.textBox {
+    background-color:white;
+    color:#333;
+    border:2px solid #333;
+
+}
+
+h2 {
+    font-family: arial;
+}
+
+.containerDiv {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    flex-wrap: wrap;
+}
+
+.column {
+    padding:5px;
+    margin:5px;
+    border:1px solid #333;
+    flex-direction: column;
+    flex:1;
+}
+
+form label{
+    color:#333;
+    font-family:arial;
+}
+
+.textBox:focus {
+    background-color:rgb(228, 228, 228);
+}
+
+button {
+    margin-top:10px;
+}

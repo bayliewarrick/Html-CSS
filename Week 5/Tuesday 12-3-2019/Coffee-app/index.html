@@ -1,0 +1,70 @@
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <div class="containerDiv">
+        
+        <div class="row">
+
+                <div class="column">
+                    <h2>Order Some Coffee</h2>
+                    <form>
+                            <label>Customer Email: </label> <br/>
+                            <input type="text" class="textBox" id="customerEmail" /> <br/>
+                            <label>Order: </label> <br/>
+                            <input type="text" class="textBox" id="coffeeOrder" /> <br/>
+                            <button id="sendOrderButton">Submit Order</button>
+                    </form>
+                </div>
+
+                <div class="column">
+                        <h2>Delete Order</h2>
+                            <form>
+                                <label>Customer Email: </label> <br/>
+                                <input type="text" class="textBox" id="deleteEmail" /> <br/>
+                                <button id="deleteOrder">Delete Order</button>
+                            </form>
+                    </div>
+                
+                <div class="column">
+                    <h2>Search Order</h2>
+                        <label>Customer Email: </label> <br/>
+                        <input type="text" class="textBox" id="customerOrderEmail" /> <br/>                 
+                        <button id="searchOrder">Search Customer</button>
+                </div>    
+
+        </div>
+
+
+        <div class="row">
+                <div class="column">
+                        <h2>Current Order Display</h2>
+                        <div id="currentOrder">
+                            
+                        </div>
+                </div>
+    
+            </div>
+
+        <div class="row">
+            <div class="column">
+                    <h2><button id="searchAllOrders">Refresh Orders</button>Current List of Orders:</h2>
+                    <form>
+                            <ul id="currentOrders">
+
+                            </ul>
+                    </form>
+            </div>
+
+        </div>
+
+        
+      
+
+    </div>
+</body>
+    <script src="app.js"></script>
+</html>

@@ -15,6 +15,7 @@ function get_details(i) {
 
     request.onload = function() {
         let results = JSON.parse(this.responseText)
+        
      year = results['Year']
      dir = results['Director']
      rated = results['Rated']
